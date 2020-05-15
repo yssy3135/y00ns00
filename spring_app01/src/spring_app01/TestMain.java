@@ -18,8 +18,7 @@ public class TestMain {
 				new XmlBeanFactory(new FileSystemResource("src/app.xml"));
 		
 		Object obj = factory.getBean("h"); // xml에 있는 bean의 id로 찾아오기
-		
-		
+
 		Hellokr hk = (Hellokr)obj;
 		
 		hk.equals("홍길동");
