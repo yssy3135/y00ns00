@@ -4,6 +4,7 @@ public class Police implements Character {
 	
 	Weapon w;
 	StunGun sg;
+	Gun g;
 	
 	int hp;
 	

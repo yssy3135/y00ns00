@@ -30,7 +30,7 @@ public class TestMain {
 		// 	  : 스나이퍼 hp - 98
 		
 		Sniper sniper = factory.getBean("sniper", Sniper.class);
-		sniper.attack("인질범");
+		sniper.attack("인질범을");
 		System.out.println("스나이퍼 hp - " + sniper.hp);
 		
 		

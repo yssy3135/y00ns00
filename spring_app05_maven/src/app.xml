@@ -5,6 +5,7 @@
 	
 	<!-- StunGun sg = new StunGun(); -->
 	<bean id="sg" class="spring_app05_maven.StunGun"></bean>
+	<bean id="g" class="spring_app05_maven.Gun"></bean>
 	<!-- Police p = new Police(Weapon w, int hp); -->
 	<bean id="p" class="spring_app05_maven.Police">
 		<!-- index는 0 부터 시작 -->
@@ -12,15 +13,21 @@
 <!-- 		<constructor-arg index="0" ref="sg" ></constructor-arg>
 		<constructor-arg index="1" value="150"></constructor-arg> -->
 		
-		<!-- 생성장 overloading이 없고 getter/setter만 있다면 -->
+		<!-- 생성자 overloading이 없고 getter/setter만 있다면 -->
 		<property name="w" ref = "sg"></property>
 		<property name="hp" value="150"></property>		
 	</bean>
 	
-	<bean id="sniper" class="spring_app05_maven.Sniper">
-		<property name="w" ref = "sg"></property>
-		<property name="hp" value="98"></property>
 	
+	
+	
+	
+	<bean id="sniper" class="spring_app05_maven.Sniper">
+		<constructor-arg index="0" ref="g"></constructor-arg>
+		<constructor-arg index="1" value="98"></constructor-arg>
+	
+<!-- 		<property name="w" ref = "g"></property>
+		<property name="hp" value="98"></property> -->
 	</bean>
 	
 	

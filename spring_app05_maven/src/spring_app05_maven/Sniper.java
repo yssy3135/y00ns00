@@ -3,8 +3,10 @@ package spring_app05_maven;
 public class Sniper implements Character {
 	Weapon w;
 	Gun g;
+	StunGun s;
 	
 	int hp;
+	
 
 	
 	
@@ -30,12 +32,12 @@ public class Sniper implements Character {
 	
 	@Override
 	public void attack(Object obj) {
-		System.out.println("인질범을 숨을 멈추고");
+		System.out.println(obj+ " 조준하고 호흡을 멈추고 쏜다.");
 		w.use();
-		System.out.println("쏜다");
+		
 	}
 	public Sniper() {
-		this.hp = 150;
+		this.hp = 100;
 	}
 	public Sniper(Weapon w, int hp ) {
 		this.w = w;
