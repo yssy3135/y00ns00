@@ -7,6 +7,10 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+<<<<<<< HEAD
+=======
+		<config>src/app.xml</config>
+>>>>>>> refs/remotes/origin/master
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
