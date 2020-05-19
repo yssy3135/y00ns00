@@ -1,13 +1,14 @@
 package spring_app09_anno;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Police implements Character {
 	
-	@Autowired
+	@Autowired			// DI로 선택할 객체가 2개 이상이면 자동으로 의존 주입이 안됨
+	@Qualifier("g")		// 각각 AutoWired로 묶던지, 틔 에서 사겢하던지, @Qualifier로 지정
 	Weapon w;
-	StunGun sg;
-	Gun g;
+
 	
 	int hp;
 	
@@ -29,13 +30,6 @@ public class Police implements Character {
 		this.w = w;
 	}
 
-	public StunGun getSg() {
-		return sg;
-	}
-
-	public void setSg(StunGun sg) {
-		this.sg = sg;
-	}
 
 	public int getHp() {
 		return hp;
