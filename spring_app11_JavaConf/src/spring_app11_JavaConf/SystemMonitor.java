@@ -1,10 +1,10 @@
-package spring_app08_anno;
+package spring_app11_JavaConf;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SystemMonitor implements Monitor{
 	
-	
+
 	Sender sender;
 	
 	public void setSender(Sender sender) {
