@@ -4,17 +4,39 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	
 	
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/goott7?useSSL=false" />
 		<property name="username" value="scott" />
 		<property name="password" value="tiger" />
 		
-	</bean>
+	</bean> -->
+	
+	<!-- connection pooling -->
+	<bean id="pool" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+										<!-- destroy-method="close" 다쓰고 나면 자동으로 close() 수행 -->
+		<!-- setter로 되어있다 -->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/goott7?useSSL=false" />
+		<property name="username" value="scott" />
+		<property name="password" value="tiger" />
+		<!-- 초기 몇개를 DBMS에 연결해 놓을지 지정 -->
+		<property name="initialSize" value="3"></property>
+		<!-- 최대 20개 연결되도록 정의 -->
+		<property name="maxTotal" value="20"></property>
+		<!-- 6000개만큼 늘면 제거하기 -->
+		<property name="maxIdle" value="6000"></property>
+		
+</bean>
+	
+	
+	
+	
 	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
-	
+		<!-- <property name="dataSource" ref="dataSource" /> -->
+		
+		<property name="dataSource" ref="pool" />		
 	</bean>
 	
 	

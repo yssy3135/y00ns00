@@ -75,6 +75,13 @@ public class MysqlDAO implements DAO {
 	@Override
 	public void updateOne(EmpDTO dto) {
 		// TODO Auto-generated method stub
+		sb.setLength(0);
+		sb.append("update emp(empno,ename,sal,deptno) ");
+		sb.append("set ?,?,?,? ");
+		
+		
+		
+		
 		
 	}
 
