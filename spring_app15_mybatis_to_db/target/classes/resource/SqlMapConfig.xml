@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+ <configuration>
+ 	<properties resource="resource/db.properties" />
+ 	
+ 	<typeAliases>
+ 		<!-- type에는 기본 위치 alias에는 별칭 -->
+ 		<typeAlias type="kr.co.goott7.mybatis_to_db.DeptDTO" alias="DeptDto"/>
+ 		
+ 	</typeAliases>
+ 	
+ 	
+ 	<environments default="dev">
+ 		<environment id="dev">
+ 			<transactionManager type="JDBC"/>
+ 			<dataSource type="POOLED">
+ 				<property name="driver" value="${driver}"/>
+ 				<property name="url" value="${url}"/>
+ 				<property name="username" value="${username}"/>
+ 				<property name="password" value="${password}"/>
+ 			</dataSource>
+ 		</environment>
+ 	</environments>
+ 	
+ 	<!-- mapper 는 여러가 가져올수있다 db마다 따로 관리 가능 -->
+ 	<mappers >
+ 		<mapper resource="resource/Mapper.xml"/>
+ 	</mappers>
+ 	
+ 	
+ 	
+ 
+ 
+ </configuration>

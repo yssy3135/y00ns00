@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+ <!-- mapper 에는 반드시 namespace가 들어가야한다 -->
+ <mapper namespace=" ">
+ 	
+ 	<select id="selectAll" resultSets="DeptDto">
+	 	select * from dept 	
+ 	</select>
+ 	
+ 	
+ 
+ 
+ </mapper>
+  
