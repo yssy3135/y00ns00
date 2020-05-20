@@ -30,8 +30,5 @@
  		<mapper resource="resource/Mapper.xml"/>
  	</mappers>
  	
- 	
- 	
- 
  
  </configuration>
