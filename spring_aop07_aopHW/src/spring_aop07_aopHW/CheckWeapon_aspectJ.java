@@ -11,7 +11,25 @@ import org.springframework.util.StopWatch;
 public class CheckWeapon_aspectJ {
 	public Object logAround(ProceedingJoinPoint pjp) throws Throwable {
 		
-		String methodName = pjp.getSignature().getName();
+		Date d = new Date();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd - hh:mm:ss");
+		
+		String useTime = sdf.format(d);
+		
+		String fileName = "weapon_aspectj";
+		
+		String dir = "C:\\Users\\goott7-8\\Downloads\\log";
+		
+		File f = new File(dir+"\\"+fileName+".txt");
+		
+		if(!f.exists()) {
+			f.createNewFile();
+		};
+		
+		PrintWriter pw = new PrintWriter(f);
+		
+		
 		
 		StopWatch sw = new StopWatch();
 		
@@ -21,25 +39,13 @@ public class CheckWeapon_aspectJ {
 		
 		sw.stop();
 		
-		 Date d = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMddhh24mmss");
-			String fileName = "weapon_aspectj";
-			
-			String dir = "C:\\Users\\goott7-8\\Downloads\\log";
-			
-			File f = new File(dir+"\\"+fileName+".txt");
-			
-			if(!f.exists()) {
-				f.createNewFile();
-			};
-			
-			PrintWriter pw = new PrintWriter(f);
 		
-			System.out.println("무기 사용 수행 시간" + sw.getTotalTimeSeconds());
+		System.out.println("무기 사용 수행 시간" + sw.getTotalTimeSeconds());
 			
 			
-			pw.write("수행시간"+ sw.getTotalTimeSeconds());
-			pw.flush();
+		pw.write("무기사용시간 : "+useTime);
+		pw.write("수행시간"+ sw.getTotalTimeSeconds());
+		pw.flush();
 		
 			
 		

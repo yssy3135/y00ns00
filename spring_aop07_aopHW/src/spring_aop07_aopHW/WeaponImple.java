@@ -13,13 +13,27 @@ public class WeaponImple implements Weapon {
 
 	@Override
 	public void fire() {
-		System.out.println(w+"이거 쓸거");
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(w+ "발사함");
 		
 	}
 
 	@Override
 	public void reload() {
 		System.out.println("재장전");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(w + "재장전 완료");
 	}
 
 }

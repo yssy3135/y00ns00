@@ -1,4 +1,4 @@
-package spring_aop07_aopHW;
+package spring_aop08_anno;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -6,16 +6,15 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class TestMain {
 	public static void main(String[] args) {
 		
-		
-		ApplicationContext context = 
+		ApplicationContext ctx =
 				new GenericXmlApplicationContext("app.xml");
 		
-		//Weapon weapon = context.getBean("proxyBean",Weapon.class);
 		
-		Weapon weapon = context.getBean("biz",Weapon.class);
+		CustomerService cs = ctx.getBean("cs",CustomerService.class);
 		
-		weapon.fire();
-		weapon.reload();
+		
+		cs.printName();
+		cs.printEmail();
 		
 	}
 }

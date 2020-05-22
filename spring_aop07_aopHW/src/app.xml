@@ -5,9 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
-	<bean id="stopwatch" class="spring_aop07_aopHW.CheckWeapon_proxy"></bean>
+<bean id="advice" class="spring_aop07_aopHW.CheckWeapon_proxy"></bean>
 	
-	<bean id="biz" class="spring_aop07_aopHW.WeaponImple">
+<bean id="biz" class="spring_aop07_aopHW.WeaponImple">
 		<property name="w" value="총" />
 </bean>
 
@@ -16,7 +16,7 @@
 
 <!-- <bean id="proxyBean" class="org.springframework.aop.framework.ProxyFactoryBean">
 	<property name="target" ref="biz" />
-	<property name="interceptorNames" value="stopwatch"/>
+	<property name="interceptorNames" value="advice"/>
 
 </bean> -->
 

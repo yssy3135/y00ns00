@@ -23,31 +23,31 @@ public class CheckWeapon_proxy implements MethodInterceptor {
 		
 		Object obj = invocation.proceed();
 		
-		 sw.stop();
+		sw.stop();
 		 
-		 Date d = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMddhh24mmss");
-			String fileName = "weapon";
+		Date d = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd - hh:mm:ss");
+		String useTime = sdf.format(d);
+		String fileName = "weapon";
 			
-			String dir = "C:\\Users\\goott7-8\\Downloads\\log";
-			
-			File f = new File(dir+"\\"+fileName+".txt");
-			
-			if(!f.exists()) {
-				f.createNewFile();
-			};
-			
-			PrintWriter pw = new PrintWriter(f);
-		 
-		 
+		String dir = "C:\\Users\\goott7-8\\Downloads\\log";
+
+		double actionTime = sw.getTotalTimeSeconds(); 
 		
-		System.out.println("무기 사용 수행 시간" + sw.getTotalTimeSeconds());
+		File f = new File(dir+"\\"+fileName+".txt");
+		
+		System.out.println("무기 사용 수행 시간" + actionTime);
+		
+		if(!f.exists()) {
+			f.createNewFile();
+		};
 		
 		
-		pw.write("수행시간"+ sw.getTotalTimeSeconds());
+		PrintWriter pw = new PrintWriter(f);
+		pw.write("무기사용시간 : "+useTime);
+		pw.write("수행시간"+ actionTime);
 		pw.flush();
-		System.out.println(sw.getTotalTimeSeconds());
-		
+
 		
 		return obj;
 	}
