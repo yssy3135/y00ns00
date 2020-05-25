@@ -1,4 +1,4 @@
-package kr.co.goott.www;
+package spring_web02;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,24 +6,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class HelloController implements Controller {
-
+public class Testcontroller implements Controller {
+	
+	
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// ModelAndView : Model + View
-		// Model : 전달할 데이터
-		// View : 찾아갈 view 이름
 		
 		ModelAndView mav = new ModelAndView();
 		
-		//mav.addObject(속성이름(변수), 속성값(데이터))
-		mav.addObject("msg", "Hello Spring WebMVC World!");
-		mav.setViewName("hello");
-//		mav.setViewName("hi");
-	
-		
-		
-		
+		mav.addObject("test1", "데이터가 잘 넘어가나~");	//data
+		mav.setViewName("hi"); 	//view name
 		
 		return mav;
 	}

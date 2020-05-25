@@ -16,13 +16,16 @@
 		<!-- view name 앞에 고정하겠다 -->
 		<property name="prefix" value="/" />
 		<!-- view name 뒤에 고정하겠다 -->
+		
 		<property name="suffix" value=".jsp" />
 		
 		
 </bean>
 	
 	<!-- Controller -->
-	<bean id="/hello.do" class="kr.co.goott.www.HelloController"></bean>
+	<!-- <bean id="/hello.do" class="kr.co.goott.www.HelloController"></bean> -->
+	<bean id="/*.hi.do" class="kr.co.goott.www.HelloController"></bean>
+	
 	
 
 
