@@ -1,0 +1,90 @@
++ MyBatis 표현식
+
+- IF
+ex) <if test="Content != null">
+          명령문...
+         </if>
+         
+         
+- choose (when.otherwise)
+
+ex)
+<select id="findActiveBlogLike"
+     resultType="Blog">
+  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
+  <choose>
+    <when test="title != null">
+      명령문 ....
+    </when>
+    <when test="author != null and author.name != null">
+      명령문 ....
+    </when>
+    <otherwise>
+      AND featured = 1
+    </otherwise>
+  </choose>
+</select>
+
+
+
+- trim, where ser
+
+ex)
+<update id="updateMember" parameterType="dto">
+	update tbl_member
+	
+	<trim prefix="set" suffixOverrides=",">
+		<if test = "username != null">username = #{username}.</if>
+		<if test = "email != null">email = #{email}.</if>
+		<if test = "mp != null">mp = #{mp}.</if>
+	</trim>	
+		
+	set user = ${username}, email = #{email}
+
+	where uid = #{uid}
+	
+	</update>
+	
+ex) 연산자
+
+<select id = "empInfo" parameterType="int" resultType="empDto">
+   select * from emp
+ 
+ 	<trim prefix="where" prefixOverrides="AND | OR">
+	 	<if test = "ename !=null"> ename = #{ename}</if>
+	 	<if test = "sal" != null>and sal = ${sal}</if>
+	 	<if test = "deptno != null> and deptno = #{deptno}</if>
+ 	</trim>
+ </select>
+
+
+
+- 반복
+ex)
+<select id="selectPostIn" resultType="domain.blog.Post">
+  SELECT *
+  FROM POST P
+  WHERE ID in
+  <foreach item="item" index="index" collection="list"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
+</select>
+
+<select>
+<![CDATA[     CDATA는 문자라는 뜻 30초과라는 >가 꺽쇠로 인식될수 있다 그걸 방지
+select * from dept
+where depto > 30;
+
+]]>
+
+<select>
+select * from dept
+where depto > 30;
+</select> 
+ 
+ 
+ 
+ 	
+	
+	
