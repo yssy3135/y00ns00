@@ -8,6 +8,13 @@
   	<select id="selectAllEmp"  resultType="dto">
   		select * from emp order by empno desc
   	</select>
+  	
+  	
+  	<insert id="insertMember" >
+  		insert into tbl_member (uid,pwd,username,email)
+  		values(#{uid},#{pwd},#{username},#{email})
+  		
+  	</insert>
   </mapper>
   
   
